@@ -3,10 +3,10 @@ import './styles.scss'
 
 const Header = () => {
   return (
-    <header>
+    <header  data-test='headerComponent'>
       <div className='wrapper'>
         <div className='logo'>
-        <h1>Logo</h1>
+        <h1 data-test='logoIMG'>Logo</h1>
         </div>
       </div>
     </header>
