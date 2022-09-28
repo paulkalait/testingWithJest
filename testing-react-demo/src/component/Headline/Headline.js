@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes, { bool, number, string } from 'prop-types'
 
-const Headline = ({ header, desc}) => {
+const Headline = ({ header, desc, tempArr}) => {
 
     if(!header){ 
         return null;
@@ -14,5 +15,17 @@ const Headline = ({ header, desc}) => {
 
   )
 }
+Headline.propTypes = { 
+  header: PropTypes.string,
+  desc: PropTypes.string,
+  tempArr: PropTypes.arrayOf(PropTypes.shape({
+    fName: PropTypes.string,
+    lName: PropTypes.string,
+    email: PropTypes.string,
+    age: PropTypes.number,
+    online: PropTypes.bool,
 
+
+  }))
+}
 export default Headline
