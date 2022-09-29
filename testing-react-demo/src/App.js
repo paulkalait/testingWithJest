@@ -3,6 +3,9 @@ import './App.scss'
 import Headline from "./component/Headline/Headline";
 
 
+
+
+
 const tempArr = [{
   fName: "Joe",
   lName: "Bloggs",
