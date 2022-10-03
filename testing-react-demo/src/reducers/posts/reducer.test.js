@@ -1,10 +1,10 @@
-import {types} from '../../actions/types'
+import * as types from '../../actions/types'
 import postsReducer from './reducer'
 
 describe("Testing Posts reducer", () => {
     it("Should return default state", () => {
         const newState = postsReducer(undefined, {});
-        expect(newState).toEqual([])
+        expect(newState).toEqual({posts: []})
     });
 
     it("Should return new state if receiving type", () => {
