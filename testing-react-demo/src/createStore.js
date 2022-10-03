@@ -1,11 +1,9 @@
-import { createStore, applyMiddleware} from 'redux'
-import ReduxThunk from 'redux-thunk'
-import RootReducer from './reducers/index.js'
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import  RootReducer from './reducers';
 
-// * applying reduxThunk middleware 
-export const middlewares = [ReduxThunk]; 
-                                                        // * pass all middlewares which are in an array
-export const createStoreWithMiddleWare = applyMiddleware(...middlewares)(createStore)
+export const middlewares = [ReduxThunk];
 
-// * now the store has been applied middleware
-export const store = createStoreWithMiddleWare(RootReducer)
+export const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore)
+
+export const store = createStoreWithMiddleware(RootReducer)
