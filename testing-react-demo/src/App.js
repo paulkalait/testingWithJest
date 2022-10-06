@@ -32,10 +32,10 @@ const App = () => {
   };
   
   return (
-    <div className="App">
+    <div className="App" data-test="appComponent">
       <Header />
 
-      <section className="main">
+      <section className="main" >
         <Button {...configureButton} />
         <Headline
           header="post"
@@ -58,11 +58,5 @@ const App = () => {
     </div>
   );
 };
-
-// const mapStateToProps = state => {
-//   return {
-//     posts: state.posts,
-//   };
-// };
 
 export default App;
