@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./component/Header/Header";
 import "./App.scss";
 import Headline from "./component/Headline/Headline";
 import Button from "./component/Button/Button";
 import ListItem from "./component/ListItem/ListItem";
 import { useDispatch, useSelector } from "react-redux";
-import {fetchPosts}  from "./actions/index.js";
+import { fetchPosts } from "./actions/index.js";
 
 const tempArr = [
   {
@@ -17,26 +17,31 @@ const tempArr = [
   },
 ];
 
-
-
 const App = () => {
-  const dispatch = useDispatch()
-  const posts = useSelector((state) => state.posts)
+  const dispatch = useDispatch();
+  const [hideBtn, setHideBtn] = useState(false);
+  const posts = useSelector((state) => state.posts);
 
   const fetch = () => {
-    dispatch(fetchPosts())
-  }
+    dispatch(fetchPosts());
+    updatesState();
+  };
   const configureButton = {
     buttonText: "Get Posts",
     emitEvent: fetch,
   };
-  
+
+  const updatesState = () => {
+    setHideBtn((hideBtn) => !hideBtn);
+  };
+
   return (
     <div className="App" data-test="appComponent">
       <Header />
 
-      <section className="main" >
-        <Button {...configureButton} />
+      <section className="main">
+        {!hideBtn && <Button {...configureButton} />}
+
         <Headline
           header="post"
           desc="Click the button to render Posts"
